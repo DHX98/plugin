@@ -107,7 +107,7 @@ add_mark_img();
 
 function add_avatar_img() {
     let img1 = new Image();
-    img1.src = "cowboy_bebop_ein_corgi.jpg";
+    img1.src = "https://raw.githubusercontent.com/DHX98/plugin/master/catDemo.jpg";
     document.getElementById("top_box").appendChild(img1);
     img1.style.width = '35px';
     img1.style.height = '35px';
@@ -278,7 +278,7 @@ function myMove() {
 }
 
 //myMove();
-post_url = "https://tractive.com/blog/wp-content/uploads/2018/10/top-tips-for-handling-a-dog-in-heat-1024x683.jpg";
+post_url = "https://raw.githubusercontent.com/DHX98/plugin/master/catDemo.jpg";
 
 window.onload = function(){
     function select(){

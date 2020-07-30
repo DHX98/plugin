@@ -11,7 +11,7 @@ alert("js loaded");
 // boxes
 
 /*the mainbody of this plugin, the relative postion can be change by this box.*/ 
-function add_box() {
+
     let box = document.createElement("div");
     box.id = "box";
     box.style.position = 'relative';
@@ -26,8 +26,7 @@ function add_box() {
     document.body.appendChild(box);
 
     box.style.right = box.style.left = "15%"; // change the relative position of the whole plugin
-}
-add_box();
+
 /*top_box is the child of box*/
 function add_top_box() {
     let box = document.createElement("div");

@@ -470,7 +470,7 @@ click_step2_button();
 
 function api_2(texts_to_back_end){
     let xhr = new XMLHttpRequest();
-    let url = 'http://localhost:3000/texts/';
+    let url = 'https://socialbook.io/api/tool/hashtag/suggest?q=';
     url += texts_to_back_end;
     alert(url);
     xhr.open("GET", url, true);

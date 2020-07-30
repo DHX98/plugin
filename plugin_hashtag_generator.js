@@ -47,7 +47,7 @@ add_top_box();
 
 // imgs and icons
 // 这里的icon是来自influencemarketinghub，我之后可以重新更换成我们数据库里的图标
-let url_src = "cowboy_bebop_ein_corgi.jpg";
+let url_src = "https://raw.githubusercontent.com/DHX98/plugin/master/catDemo.jpg";
 
 function add_ins_img(url_src) {
     let img1 = new Image();

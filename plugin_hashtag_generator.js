@@ -1,3 +1,4 @@
+
 /*
 Hash_tag_generator.
 
@@ -9,16 +10,22 @@ alert("js loaded2");
 
 // boxes
 
+/* inToWeb is to put the plugin into the webpage*/
 function inToWeb(){
     let x = document.getElementsByClassName("inner");
-let a = document.createElement("div");
-a.id = "kk";
-x[0].appendChild(a);
-alert("233");
-}inToWeb();
+    let a = document.createElement("div");
+    a.id = "kk";
+    x[0].appendChild(a);
+}
+inToWeb();
 
 
-
+function mainBody(){
+    let box = document.createElement("div");
+    box.id = "mainBody";
+    document.body.appendChild(box);
+    box.style.margin = "500px,50px,50px,50px";
+}mainBody();
 /*the mainbody of this plugin, the relative postion can be change by this box.*/ 
 
     let box = document.createElement("div");
@@ -33,7 +40,7 @@ alert("233");
     box.style.borderRadius = '10px 10px';
     box.style.margin = 'auto';
     box.style.boxShadow = "5px 5px 5px grey";
-    document.body.appendChild(box);
+    document.getElementById("mainBody").appendChild(box);
 
     box.style.right = box.style.left = "15%"; // change the relative position of the whole plugin
     box.style.display = "block";
@@ -41,7 +48,7 @@ alert("233");
 /*top_box is the child of box*/
 function add_top_box() {
     let box = document.createElement("div");
-    let currentDiv = document.getElementById("p1");
+    let currentDiv = document.getElementById("kk");
     box.id = "top_box";
     box.style.borderRadius = '10px 10px 0px 0px';
     box.style.width = '100%';
@@ -54,18 +61,23 @@ function add_top_box() {
 }
 add_top_box();
 
-  
+
 // imgs and icons
 // 这里的icon是来自influencemarketinghub，我之后可以重新更换成我们数据库里的图标
 let url_src = "https://raw.githubusercontent.com/DHX98/plugin/master/catDemo.jpg";
 
 function add_ins_img(url_src) {
+    let ins_img_box = document.createElement("div");
+    ins_img_box.id = "ins_img_box";
+
+
+
     let img1 = new Image();
     img1.src = url_src;
     img1.id = "ins_img";
     document.getElementById("box").appendChild(img1);
     img1.style.width = '100%';
-    img1.style.height = '100%'
+    img1.style.height = "100%";
     img1.style.display = "block";
 }
 add_ins_img(url_src);
@@ -112,7 +124,7 @@ function add_mark_img() {
     img1.style.cssFloat = 'right';
     img1.style.marginRight = '25px';
     img1.style.marginTop = '10px';
-
+    img1.style.display = 'block';
 }
 add_mark_img();
 
@@ -127,6 +139,7 @@ function add_avatar_img() {
     img1.style.borderRadius = '50%';
     img1.style.marginLeft = '20px';
     img1.style.marginTop = '25px';
+    img1.style.marginBottom = '25px';
 }
 add_avatar_img();
 
@@ -155,6 +168,7 @@ function add_name(user_name, user_position) {
     box.style.width = '250px';
     box.style.height = '20px';
     box.innerText = user_name;
+    box.style.padding = "10px, 10px, 20px, 20px";
     document.getElementById("top_box").appendChild(box);
     let box1 = document.createElement("div");
     box1.id = "position_box";
@@ -413,24 +427,33 @@ function api_clarifai(post_url) {
 api_clarifai(post_url);
 
 function button1() {
+    let urlinputs = document.createElement("div");
+    urlinputs.id = "urlinputs";
+    let current = document.getElementById("box"); 
+    urlinputs.style.position = "relative";
+    urlinputs.style.marginTop = "50px";
+    document.body.appendChild(urlinputs);
+    //document.body.insertBefore(urlinputs,current);
+
     let texts = document.createElement("INPUT");
     texts.style.position = 'relative';
     texts.id = 'urls';
     let button = document.createElement("BUTTON");
     button.id = 'url_button';
-    button.innerText = "enter the url of image: ";
+    button.innerText = "enter the url of image";
     button.style.position = 'relative';
-    button.style.top = button.style.botton = "5%";
+    button.style.top = button.style.bottom = "5%";
     button.style.cssFloat = 'left'
     button.style.background = 'white';
     button.style.borderRadius = '10px 10px';
     button.style.margin = 'auto';
     button.style.boxShadow = "5px 5px 5px grey";
     texts.style.cssFloat = 'left';
-    texts.style.top = texts.style.botton = "5%";
-
-    document.getElementById("box").appendChild(texts);
-    document.getElementById("box").appendChild(button);
+    //texts.style.top = texts.style.botton = "5%";
+    button.style.display="block";
+    texts.style.display = "block";
+    document.getElementById("urlinputs").append(texts);
+    document.getElementById("urlinputs").appendChild(button);
 
 }
 button1();
@@ -507,7 +530,7 @@ function create_table2(num_hashtags, json) {
     tb2.style.width = '460px';
     //tbl.style.border = '1px solid black'; 
     tb2.style.position = "relative";
-    tb2.style.top = document.getElementById("p1").style.bottom = "0%";
+    tb2.style.top = document.getElementById("kk").style.bottom = "0%";
     //color #4272d7
     tb2.style.borderRadius = '0px 0px 10px 10px';
     tb2.style.margin = 'auto';

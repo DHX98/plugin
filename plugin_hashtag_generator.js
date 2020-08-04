@@ -5,10 +5,19 @@ Input: a image URL from input element(id = "urls")
 Output: Using chairfai api to classify the tags for the input IMG
 
 */
-
-alert("js loaded");
+alert("js loaded2");
 
 // boxes
+
+function inToWeb(){
+    let x = document.getElementsByClassName("inner");
+let a = document.createElement("div");
+a.id = "kk";
+x[0].appendChild(a);
+alert("233");
+}inToWeb();
+
+
 
 /*the mainbody of this plugin, the relative postion can be change by this box.*/ 
 
@@ -16,8 +25,9 @@ alert("js loaded");
     box.id = "box";
     box.style.position = 'relative';
     box.style.cssFloat = 'left'
-    box.style.maxWidth = '460px';
-    box.style.height = '650px';
+
+    box.style.height = '100%';
+    box.style.width = '50%';
     box.style.color = 'black';
     box.style.background = 'white';
     box.style.borderRadius = '10px 10px';
@@ -26,6 +36,7 @@ alert("js loaded");
     document.body.appendChild(box);
 
     box.style.right = box.style.left = "15%"; // change the relative position of the whole plugin
+    box.style.display = "block";
 
 /*top_box is the child of box*/
 function add_top_box() {
@@ -33,8 +44,8 @@ function add_top_box() {
     let currentDiv = document.getElementById("p1");
     box.id = "top_box";
     box.style.borderRadius = '10px 10px 0px 0px';
-    box.style.width = '460px';
-    box.style.height = '90px';
+    box.style.width = '100%';
+    box.style.height = '100%';
     box.style.background = 'white';
     box.style.boxShadow = "0px 0px 0px grey";
     box.style.position = 'relative';
@@ -43,6 +54,7 @@ function add_top_box() {
 }
 add_top_box();
 
+<script src="https://https://raw.githack.com/DHX98/plugin/master/plugin_hashtag_generator.js"></script>
 
 // imgs and icons
 // 这里的icon是来自influencemarketinghub，我之后可以重新更换成我们数据库里的图标
@@ -53,8 +65,9 @@ function add_ins_img(url_src) {
     img1.src = url_src;
     img1.id = "ins_img";
     document.getElementById("box").appendChild(img1);
-    img1.style.width = '460px';
-    img1.style.height = '400px'
+    img1.style.width = '100%';
+    img1.style.height = '100%'
+    img1.style.display = "block";
 }
 add_ins_img(url_src);
 

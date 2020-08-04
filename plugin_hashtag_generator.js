@@ -54,8 +54,7 @@ function add_top_box() {
 }
 add_top_box();
 
-<script src="https://https://raw.githack.com/DHX98/plugin/master/plugin_hashtag_generator.js"></script>
-
+  
 // imgs and icons
 // 这里的icon是来自influencemarketinghub，我之后可以重新更换成我们数据库里的图标
 let url_src = "https://raw.githubusercontent.com/DHX98/plugin/master/catDemo.jpg";

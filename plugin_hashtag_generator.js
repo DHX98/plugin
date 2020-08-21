@@ -1,4 +1,3 @@
-
 /*
 Hash_tag_generator.
 
@@ -6,7 +5,7 @@ Input: a image URL from input element(id = "urls")
 Output: Using chairfai api to classify the tags for the input IMG
 
 */
-alert("js loaded2");
+
 
 // boxes
 
@@ -23,11 +22,33 @@ inToWeb();
 function mainBody(){
     let box = document.createElement("div");
     box.id = "mainBody";
+    box.style.display = "inline-block";
+ //   box.style.padding = "50px";
+   // box.style.backgroundColor = "green";
+    box.style.width = "100%";
+    box.style.height = "100%";
+    box.style.boxSizing = "border-box";
+    box.style.paddingLeft = "50px";
     document.body.appendChild(box);
-    box.style.margin = "500px,50px,50px,50px";
+
 }mainBody();
 /*the mainbody of this plugin, the relative postion can be change by this box.*/ 
 
+function insContainer(){
+    let box = document.createElement("div");
+    box.id = "insContainer";
+    box.style.position = 'relative';
+    //box.style.cssFloat = 'right';
+
+    box.style.height = '100%';
+    box.style.width = '70%';
+    box.style.marginRight = "50px";
+    box.style.display = "block";
+    document.getElementById("mainBody").appendChild(box);
+
+}insContainer();
+
+function insBody(){
     let box = document.createElement("div");
     box.id = "box";
     box.style.position = 'relative';
@@ -35,15 +56,42 @@ function mainBody(){
 
     box.style.height = '100%';
     box.style.width = '50%';
+    box.style.minHeight = "550px";
+    box.style.minWidth = "200px";
+    box.style.minHeight = "550px";
+    box.style.minWidth = "200px";
+
+    
     box.style.color = 'black';
     box.style.background = 'white';
     box.style.borderRadius = '10px 10px';
     box.style.margin = 'auto';
     box.style.boxShadow = "5px 5px 5px grey";
+    box.style.margin = "10px 10px 10px 10px";
+    box.style.right = box.style.left = "5%"; // change the relative position of the whole plugin
+    box.style.display = "block";
+
+    document.getElementById("insContainer").appendChild(box);
+
+}insBody();
+   
+
+
+function table1_box(){
+    let box = document.createElement("div");
+    box.id = "table1_container";
+    //box.style.backgroundColor = "red";
+
+    box.style.boxSizing = "border-box";
+    box.style.display = "inline-block";
+    //box.style.margin = "80px";
+    box.style.marginTop  = "0px";
+    //box.style.cssFloat = "right";
+    //box.style.right = document.getElementById("box").style.left = "-5%";
     document.getElementById("mainBody").appendChild(box);
 
-    box.style.right = box.style.left = "15%"; // change the relative position of the whole plugin
-    box.style.display = "block";
+}table1_box();
+
 
 /*top_box is the child of box*/
 function add_top_box() {
@@ -57,10 +105,11 @@ function add_top_box() {
     box.style.boxShadow = "0px 0px 0px grey";
     box.style.position = 'relative';
     box.style.cssFloat = "left";
+    box.style.display = "block";
     document.getElementById("box").appendChild(box);
+
 }
 add_top_box();
-
 
 // imgs and icons
 // 这里的icon是来自influencemarketinghub，我之后可以重新更换成我们数据库里的图标
@@ -69,9 +118,6 @@ let url_src = "https://raw.githubusercontent.com/DHX98/plugin/master/catDemo.jpg
 function add_ins_img(url_src) {
     let ins_img_box = document.createElement("div");
     ins_img_box.id = "ins_img_box";
-
-
-
     let img1 = new Image();
     img1.src = url_src;
     img1.id = "ins_img";
@@ -80,7 +126,7 @@ function add_ins_img(url_src) {
     img1.style.height = "100%";
     img1.style.display = "block";
 }
-add_ins_img(url_src);
+
 
 function add_heart_img() {
     let img1 = new Image();
@@ -91,7 +137,7 @@ function add_heart_img() {
     img1.style.marginLeft = '20px';
     img1.style.marginTop = '10px';
 }
-add_heart_img();
+
 
 function add_comment_img() {
     let img1 = new Image();
@@ -102,7 +148,6 @@ function add_comment_img() {
     img1.style.marginLeft = '20px';
     img1.style.marginTop = '10px';
 }
-add_comment_img();
 
 function add_share_img() {
     let img1 = new Image();
@@ -113,7 +158,6 @@ function add_share_img() {
     img1.style.marginLeft = '20px';
     img1.style.marginTop = '10px';
 }
-add_share_img();
 
 function add_mark_img() {
     let img1 = new Image();
@@ -126,7 +170,6 @@ function add_mark_img() {
     img1.style.marginTop = '10px';
     img1.style.display = 'block';
 }
-add_mark_img();
 
 function add_avatar_img() {
     let img1 = new Image();
@@ -141,7 +184,6 @@ function add_avatar_img() {
     img1.style.marginTop = '25px';
     img1.style.marginBottom = '25px';
 }
-add_avatar_img();
 
 function add_dots_img() {
     let img1 = new Image();
@@ -153,7 +195,6 @@ function add_dots_img() {
     img1.style.marginRight = '25px';
     img1.style.marginTop = '32px';
 }
-add_dots_img();
 
 //texts
 
@@ -165,8 +206,8 @@ function add_name(user_name, user_position) {
     box.style.position = 'relative';
     box.style.top = '23px';
     box.style.left = '14px';
-    box.style.width = '250px';
-    box.style.height = '20px';
+    box.style.maxWidth = '250px';
+    box.style.maxHeight = '20px';
     box.innerText = user_name;
     box.style.padding = "10px, 10px, 20px, 20px";
     document.getElementById("top_box").appendChild(box);
@@ -175,14 +216,12 @@ function add_name(user_name, user_position) {
     box1.style.position = 'relative';
     box1.style.top = '23px';
     box1.style.left = '14px';
-    box1.style.width = '250px';
-    box1.style.height = '20px';
+    box1.style.maxWidth = '250px';
+    box1.style.maxHeight = '20px';
     box1.innerText = user_position;
     document.getElementById("top_box").appendChild(box1);
 
 }
-
-add_name('dhx', 'Corvallis, US');
 
 function add_likes() {
     let box = document.createElement("div");
@@ -195,7 +234,6 @@ function add_likes() {
     box.style.height = '20px';
     box.innerText = parseInt(Math.random() * 10000) + ' Likes';
 }
-add_likes();
 
 function add_tags(tags) {
 
@@ -205,45 +243,51 @@ function add_tags(tags) {
     box.style.position = 'relative';
     box.style.top = '14px';
     box.style.left = '20px';
-    box.style.width = '250px';
-    box.style.height = '20px';
+    box.style.width = '100%';
+    box.style.height = '100%';
     box.innerText = tags;
+    box.style.display = "block";
+    box.style.paddingBottom = "9%";
     //document.body.insertBefore(box, currentDiv); 
 }
 tags = '#dog #cat #pets #templete';
-add_tags(tags);
-
-function thread() {
-    let box = document.createElement("div");
-    box.id = "thread1";
-    box.style.width = '600px';
-    box.style.height = '95px';
-    box.style.backgroundColor = "#4272d7";
-    document.getElementById("box").appendChild(box);
-
-    /* relative position setting up*/
-    let relativeEle = document.getElementById("top_box");
-    box.style.position = 'relative';
-    box.style.left = box.style.right = "120%";
-    box.style.bottom = box.style.top = "-91.28%";
-    /* relative position setting up*/
-    box.style.borderRadius = '10px 10px 0px 0px';
-    // box.style.margin = 'auto';
-    box.style.boxShadow = "5px 5px 5px grey";
 
 
-    let text_thread1 = document.createElement("p");
-    text_thread1.innerText = "   Select your keywords to generate real time hashtags";
-    text_thread1.style.position = "relative";
-    text_thread1.style.padding = "10px";
-    text_thread1.style.height = "20px";
-    text_thread1.id = "thread1_text1";
-    box.appendChild(text_thread1);  
-    text_thread1.style.bottom =text_thread1.style.top = "16.5%";
+function load_static_source(){
+    add_ins_img(url_src);add_heart_img();add_comment_img();add_share_img();add_mark_img();add_avatar_img();add_dots_img();add_name('dhx', 'Corvallis, US');add_likes();add_tags(tags);
+}load_static_source();
+
+function button1() {
+    let urlinputs = document.createElement("div");
+    urlinputs.id = "urlinputs";
+
+    document.body.appendChild(urlinputs);
+    //document.body.insertBefore(urlinputs,current);
+    let texts = document.createElement("INPUT");
+    texts.id = 'urls';
+    texts.style.width = "89%";
+    let button = document.createElement("BUTTON");
+    button.id = 'url_button';
+    button.innerText = "enter the url of the image";
+
+    urlinputs.style.position = 'relative';
+    urlinputs.style.cssFloat = 'left';
+    //urlinputs.style.background = 'white';
+    urlinputs.style.margin = "10px";
+    urlinputs.style.height = '100%';
+    urlinputs.style.width = '50%';
+    urlinputs.style.minWidth = "200";
+  // urlinputs.style.right = urlinputs.style.left = "1%";
+  //  urlinputs.style.
+    document.getElementById("urlinputs").appendChild(texts);
+    document.getElementById("urlinputs").appendChild(button);
+   // document.getElementById("insContainer").insertAdjacentElement('afterend',urlinputs);
+    document.getElementById("box").append(urlinputs);
 
 }
+button1();
 
-thread();
+
 
 //thread2
 
@@ -314,21 +358,33 @@ window.onload = function(){
 let texts_to_back_end = "";
 //table
 function create_table(num_keywords, keywords) {
-    let tbl = document.createElement('table');
-    tbl.style.width = '600px';
-    //tbl.style.border = '1px solid black'; 
-    tbl.style.position = "relative";
-    tbl.style.top = document.getElementById("thread1").style.bottom = "15%";
-    //color #4272d7
 
+
+    let tbl = document.createElement('table');
+    //tbl.style.width = '100%';
+    //tbl.style.position = "relative";
+    //color #4272d7
+    
     tbl.style.borderRadius = '0px 0px 10px 10px';
     tbl.style.margin = 'auto';
     tbl.style.boxShadow = "5px 5px 5px grey";
     tbl.id = "table1";
+    tbl.style.display = "block";
+    tbl.style.cssFloat ="right";
+    tbl.style.marginRight = "20%";
+    let firstRow = tbl.insertRow();
+    let firstRowData = firstRow.insertCell();
+    firstRowData.appendChild(document.createTextNode("Choose your keywords to get hashtags"));
+    firstRowData.style.padding = "10px";
+    firstRowData.style.backgroundColor = "#4272d7";
+    firstRowData.style.display = "block";
+    firstRowData.style.position = 'relative';
+    //box.style.left = box.style.right = "60%";
+    firstRowData.style.cssFloat = 'right';
+    firstRowData.style.borderRadius = '10px 10px 0px 0px';
+    firstRowData.style.boxShadow = "5px 5px 5px grey";
+    firstRowData.id = "firstRow";
 
-    tbl.style.left = tbl.right = "-0.475%";
-    
-    
     for (let i = 0; i < num_keywords; i++) {
         let tr = tbl.insertRow();
 
@@ -336,10 +392,10 @@ function create_table(num_keywords, keywords) {
             let t_data = tr.insertCell();
             t_data.appendChild(document.createTextNode("   #" + keywords[i].name));
             // t_data.style.border = '1px solid #4272d7';
-            t_data.style.padding = '10px';
+            t_data.style.padding = '2.5%';
             t_data.style.backgroundColor = "white";
-            t_data.style.height = 320;
-            t_data.style.width = 300;
+            t_data.style.height = "120%";
+            t_data.style.width = "120%";
             t_data.style.borderRadius = '0px 0px 10px 10px';
             t_data.className = "table_elements";
             
@@ -352,6 +408,7 @@ function create_table(num_keywords, keywords) {
             x.value = keywords[i].name;
             x.style.position = "relative";
             x.style.cssFloat = "right";
+            x.style.marginLeft = "80px";
 
             t_data.appendChild(x);
             x.onclick = function(event) {
@@ -362,29 +419,11 @@ function create_table(num_keywords, keywords) {
                     texts_to_back_end += String(checkbox.value);
                 }
             }
-
-          
-
-            
-            
-     //       t_data.innerHTML += " <input type='checkbox' onclick='console.log(select.toString)' value='Select' />Update";
-            
-            /*
-            for (let k = 0; k < 1; k++){
-                let t_data = tr.insertCell();
-                t_data.appendChild(x);
-                t_data.style.padding = '10px';
-                t_data.style.backgroundColor = "white";
-               // t_data.style.height = 320;
-                //t_data.style.width = 300;
-                t_data.style.borderRadius = '0px 0px 10px 10px';
-                t_data.className = "table_elements";
-            }  
-            */
         }
     }
-   // console.log(document.getElementById("checkbox0").inner);
-    document.getElementById('thread1').appendChild(tbl);
+
+    
+    document.getElementById('table1_container').appendChild(tbl);
 }
 
 
@@ -426,56 +465,11 @@ function api_clarifai(post_url) {
 
 api_clarifai(post_url);
 
-function button1() {
-    let urlinputs = document.createElement("div");
-    urlinputs.id = "urlinputs";
-    let current = document.getElementById("box"); 
-    urlinputs.style.position = "relative";
-    urlinputs.style.marginTop = "50px";
-    document.body.appendChild(urlinputs);
-    //document.body.insertBefore(urlinputs,current);
 
-    let texts = document.createElement("INPUT");
-    texts.style.position = 'relative';
-    texts.id = 'urls';
-    let button = document.createElement("BUTTON");
-    button.id = 'url_button';
-    button.innerText = "enter the url of image";
-    button.style.position = 'relative';
-    button.style.top = button.style.bottom = "5%";
-    button.style.cssFloat = 'left'
-    button.style.background = 'white';
-    button.style.borderRadius = '10px 10px';
-    button.style.margin = 'auto';
-    button.style.boxShadow = "5px 5px 5px grey";
-    texts.style.cssFloat = 'left';
-    //texts.style.top = texts.style.botton = "5%";
-    button.style.display="block";
-    texts.style.display = "block";
-    document.getElementById("urlinputs").append(texts);
-    document.getElementById("urlinputs").appendChild(button);
-
-}
-button1();
 
 //
 
 
-function button2() {
-
-    let button = document.createElement("BUTTON");
-    button.id = 'step_2_button';
-    button.innerText = "Click here to get hashtags";
-    button.style.position = 'relative';
-    button.style.top = button.style.botton = "5%";
-    button.style.cssFloat = 'left'
-    button.style.background = 'white';
-    button.style.borderRadius = '10px 10px';
-    button.style.margin = 'auto';
-    button.style.right = button.style.left = "60%";
-    document.getElementById("thread1_text1").insertAdjacentElement( "afterend",button);
-
-}button2();
 // if click button, change the pic in id = "ins_img", and then remove the id = "table1", adding a new table by calling api_clarifai()
 function change_pic() {
     let img_url = document.getElementById("urls").value;
@@ -491,6 +485,24 @@ document.getElementById("url_button").onclick = function () {
 };
 
 //
+
+function button2() {
+
+    let button = document.createElement("BUTTON");
+    button.id = 'step_2_button';
+    button.innerText = "Click here to get hashtags";
+    button.style.position = 'relative';
+    //button.style.right = button.style.left = "60%";
+    //button.style.marginRight = '5px';
+    button.style.cssFloat = "left";
+    button.style.marginLeft = "30%";
+    button.style.display ="block";
+    //button.style.right = document.getElementById("box").style.left = "15%";
+    //button.style.right = document.getElementById("table1_container").style.left = "23%";
+   // button.style.top = document.getElementById("table1_container").style.bottom = "50%";
+    document.getElementById("table1_container").append(button);
+
+}button2();
 
 function click_step2_button(){
     let btn_2 = document.getElementById("step_2_button");
@@ -576,3 +588,32 @@ function create_table2(num_hashtags, json) {
     }
     document.getElementById("thread2").appendChild(tb2);
 }
+
+
+window.addEventListener('load', function() {
+    document.querySelector('input[type="file"]').addEventListener('change', function() {
+        if (this.files && this.files[0]) {
+            var img = document.querySelector('img');  // $('img')[0]
+            img.src = URL.createObjectURL(this.files[0]); // set src to blob url
+            img.onload = imageIsLoaded;
+        }
+    });
+  });
+  
+function imageIsLoaded() { 
+    alert(this.src);  // blob url
+    // update width and height ...
+}
+
+
+
+
+/*
+function load_static_source(){
+    add_ins_img(url_src);add_heart_img();add_comment_img();add_share_img();add_mark_img();add_avatar_img();add_dots_img();add_name('dhx', 'Corvallis, US');add_likes();add_tags(tags);
+}
+function ini(){
+    load_static_source();
+    inToWeb();
+}ini();
+*/
